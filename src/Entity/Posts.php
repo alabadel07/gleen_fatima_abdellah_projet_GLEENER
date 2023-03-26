@@ -24,8 +24,7 @@ class Posts
 
     #[ORM\Column(length: 255)]
     private ?string $content = null;
-
-    #[ORM\Column(length: 255)]
+        #[ORM\Column(length: 255)]
     private ?string $localisation = null;
 
     #[ORM\Column(length: 255)]
@@ -43,7 +42,7 @@ class Posts
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
-   
+    
     #[ORM\Column]
     private array $annonce = [];
     public function __construct()
@@ -126,7 +125,6 @@ public function getOther(): ?string
 
         return $this;
     }
-
     public function getCreator(): ?User
     {
         return $this->creator;
@@ -138,7 +136,7 @@ public function getOther(): ?string
 
         return $this;
     }
-    public function getAnnonce(): array
+   public function getAnnonce(): array
     {
         $annonce = $this->annonce;
         // guarantee every user at least has Annonce_
@@ -153,9 +151,8 @@ public function getOther(): ?string
 
         return $this;
     }
-  
     /**
-     * @return Collection<int, Comments>
+     * @return Collection<int, Comment>
      */
     public function getComments(): Collection
     {
@@ -164,9 +161,9 @@ public function getOther(): ?string
 
     public function addComment(Comments $comment): self
     {
-        if (!$this->comments->contains($comment)) {
+        if (!$this->comments->contains($comments)) {
             $this->comments->add($comment);
-            $comment->setPost($this);
+            $comments->setPost($this);
         }
 
         return $this;
@@ -174,7 +171,8 @@ public function getOther(): ?string
 
     public function removeComment(Comments $comment): self
     {
-        if ($this->comments->removeElement($comment)) {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
             // set the owning side to null (unless already changed)
             if ($comment->getPost() === $this) {
                 $comment->setPost(null);

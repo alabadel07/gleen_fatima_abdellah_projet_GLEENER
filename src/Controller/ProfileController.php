@@ -5,13 +5,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\User;
 
-class HomePageController extends AbstractController
+class ProfileController extends AbstractController
 {
-    #[Route('/', name: 'app_home_page')]
+    #[Route('/profile', name: 'app_profile')]
     public function index(): Response
     {
-        return $this->render('home_page/index.html.twig', [
+        return $this->render('profile/index.html.twig', [
             'user' => $this->getUser()
         ]);
     }

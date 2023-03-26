@@ -23,7 +23,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private array $roles = [];
-
+    const ROLES = array(
+        'Admin' => 'ROLE_ADMIN',
+        'User' => 'ROLE_USER'
+    );
     /**
      * @var string The hashed password
      */
@@ -46,6 +49,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'creator_id', targetEntity: Posts::class)]
     private Collection $posts;
 
+    #[ORM\OneToMany(mappedBy: 'creator_id', targetEntity: Blogs::class)]
+    private Collection $blogs;
+
     #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Comments::class)]
     private Collection $comments;
 
@@ -53,6 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->reports = new ArrayCollection();
         $this->posts = new ArrayCollection();
+        $this->blogs = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -217,6 +224,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($post->getCreator() === $this) {
                 $post->setCreator(null);
+            }
+        }
+
+        return $this;
+    }
+     /**
+     * @return Collection<int, Blogs>
+     */
+    public function getBlogs(): Collection
+    {
+        return $this->blogs;
+    }
+
+    public function addBlog(Blogs $blog): self
+    {
+        if (!$this->blogs->contains($blog)) {
+            $this->blogss->add($blog);
+            $blog->setCreator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlog(Blogs $Blog): self
+    {
+        if ($this->Blogs->removeElement($blog)) {
+            // set the owning side to null (unless already changed)
+            if ($blog->getCreator() === $this) {
+                $blog->setCreator(null);
             }
         }
 

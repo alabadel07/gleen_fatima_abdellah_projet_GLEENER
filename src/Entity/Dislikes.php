@@ -2,45 +2,28 @@
 
 namespace App\Entity;
 
-use App\Repository\ReportsRepository;
+use App\Repository\DislikesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReportsRepository::class)]
-class Reports
+#[ORM\Entity(repositoryClass: DislikesRepository::class)]
+class Dislikes
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $reason = null;
-
-    #[ORM\ManyToOne(inversedBy: 'reports')]
+     #[ORM\ManyToOne(inversedBy: 'dislikes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reports')]
+    #[ORM\ManyToOne(inversedBy: 'dislikes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Comments $comment = null;
-
-    
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getReason(): ?string
-    {
-        return $this->reason;
-    }
-
-    public function setReason(string $reason): self
-    {
-        $this->reason = $reason;
-
-        return $this;
     }
 
     public function getUser(): ?User
@@ -67,8 +50,4 @@ class Reports
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->getReason();
-    }
 }

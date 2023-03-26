@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PostsRepository;
+use App\Repository\BlogsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PostsRepository::class)]
+#[ORM\Entity(repositoryClass: BlogsRepository::class)]
 class Blogs
 {
     #[ORM\Id]
@@ -25,11 +25,11 @@ class Blogs
     #[ORM\Column(length: 255)]
     private ?string $content = null;
 
-    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\ManyToOne(inversedBy: 'blogs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $creator = null;
 
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comments::class)]
+    #[ORM\OneToMany(mappedBy: 'blog', targetEntity: Comments::class)]
     private Collection $comments;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -106,7 +106,7 @@ class Blogs
     {
         if (!$this->comments->contains($comment)) {
             $this->comments->add($comment);
-            $comment->setPost($this);
+            $comment->setBlog($this);
         }
 
         return $this;
@@ -116,8 +116,8 @@ class Blogs
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getPost() === $this) {
-                $comment->setPost(null);
+            if ($comment->getBlog() === $this) {
+                $comment->setBlog(null);
             }
         }
 
@@ -140,4 +140,6 @@ class Blogs
     {
         return $this->getTitle();
     }
+
+ 
 }

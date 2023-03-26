@@ -60,6 +60,16 @@ class Comments
     {
         $this->likes++;
     }
+    public function setLikes($likes)
+{
+    $this->likes = $likes;
+}
+
+public function setDislikes($dislikes)
+{
+    $this->dislikes = $dislikes;
+}
+
     
     public function addDislike()
     {
