@@ -20,7 +20,7 @@ final class Version20230314234108 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE comments ADD likes INT NOT NULL, ADD dislikes INT NOT NULL');
+        $this->addSql('ALTER TABLE comments ADD like INT NOT NULL, ADD dislike INT NOT NULL');
         $this->addSql('ALTER TABLE comments ADD CONSTRAINT FK_5F9E962AA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE comments ADD CONSTRAINT FK_5F9E962A4B89032C FOREIGN KEY (post_id) REFERENCES posts (id)');
         $this->addSql('ALTER TABLE posts ADD CONSTRAINT FK_885DBAFA61220EA6 FOREIGN KEY (creator_id) REFERENCES user (id)');
@@ -35,7 +35,7 @@ final class Version20230314234108 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE comments DROP FOREIGN KEY FK_5F9E962AA76ED395');
         $this->addSql('ALTER TABLE comments DROP FOREIGN KEY FK_5F9E962A4B89032C');
-        $this->addSql('ALTER TABLE comments DROP likes, DROP dislikes');
+        $this->addSql('ALTER TABLE comments DROP like, DROP dislike');
         $this->addSql('ALTER TABLE posts DROP FOREIGN KEY FK_885DBAFA61220EA6');
         $this->addSql('ALTER TABLE reports DROP FOREIGN KEY FK_F11FA745A76ED395');
         $this->addSql('ALTER TABLE reports DROP FOREIGN KEY FK_F11FA745F8697D13');

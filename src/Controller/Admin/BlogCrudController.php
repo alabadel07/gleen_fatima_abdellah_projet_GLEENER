@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Blogs;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\{AssociationField, DateField, IdField, TextField};
+use EasyCorp\Bundle\EasyAdminBundle\Field\{AssociationField, DateField, IdField, TextField,TextareaField};
 class BlogCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string {
@@ -16,7 +16,9 @@ class BlogCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title')->setLabel('Titre'),
             TextField::new('description')->setLabel('Description'),
-            TextField::new('content')->setLabel('Contenu'),
+            TextareaField::new('content')
+            ->setLabel('Contenu')
+            ->setFormTypeOption('attr', array('maxlength' => -1)),
             DateField::new('date')->hideOnForm(),
             AssociationField::new('creator')->setLabel('Créateur du blog'),
         ];
