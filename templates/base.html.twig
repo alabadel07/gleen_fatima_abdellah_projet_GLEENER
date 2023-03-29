@@ -42,7 +42,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
                             {% if user != null %}
-                                <li><a class="dropdown-item" href={{ path('app_profile') }}>Mon compte</a></li>
+                                <li><a class="dropdown-item" href={{ path('app_profile',{'username': user.username}) }}>Mon compte</a></li>
                                 <li><a class="dropdown-item" href={{ path('app_logout') }}>Se déconnecter</a></li>
                             {% else %}
                                 <li><a class="dropdown-item" href={{ path('app_login') }}>Se connecter</a></li>

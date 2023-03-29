@@ -5,7 +5,7 @@
         
             <div class="card-header">Signaler un commentaire</div>
             <div class="card-body">
-                <p>Commentaire: <b>{{ comments.text }}</b> de {{ comments.user.username }}</p>
+                <p>Commentaire: <b>{{ comments.text }}</b> crée par{{ comments.user.username }}</p>
                
                 {% if user %}
                     {{ form_start(reportForm, {'action': path('add_report', {'id': comments.id})}) }}

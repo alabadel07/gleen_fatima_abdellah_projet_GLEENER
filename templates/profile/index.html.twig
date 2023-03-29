@@ -1,30 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}UEL316 - Profil de {{ user.username }}{% endblock %}
+{% block title %}Profil{% endblock %}
 
 {% block body %}
-    {% if user != null %}
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Profil de <b>{{ user.username }}</b></div>
-                    <div class="card-body">
-                        <p class="fs-3"><b>Identifiant:</b> {{ user.username }}</p>
-                        <p class="fs-3"><b>Prénom:</b> {{ user.firstname }}</p>
-                        <p class="fs-3"><b>Nom:</b> {{ user.lastname }}</p>
+{% if user is not null %}
+  <h1>{{ user.firstname }} {{ user.lastname }}</h1>
+  <p>Email: {{ user.email }}</p>
+  <p>Username: {{ user.username }}</p>
 
-                        {% set roles = '' %}
-                        {% for role in user.roles %}
-                            {% set roles = roles ~ ' ' ~ role %}
-                        {% endfor %}
-                        <p class="fs-3"><b>Rôles:</b> {{ roles }}</p>
+  {% if posts is empty %}
+       <a href="{{ path('app_new_post') }}" class="btn btn-primary">Ajouter un post</a>
 
-                        <p class="fs-3"><b>E-Mail:</b> {{ user.email }}</p>
-                    </div>
+    {% else %}
+ <h2>Posts by {{ user.username }}</h2>
+     <a href="{{ path('app_new_post') }}" class="btn btn-primary">Ajouter un post</a>
+       
+            <div class="container w-100">
+                <div class="row justify-content-around flex-wrap overflow-auto">
+                  {% for post in posts %}
+                      <h3>{{ post.title }}</h3>
+                          <p>{{ post.content }}</p>
+                          <div class="card-footer text-muted">Publié le {{ post.date|date('d/m/Y') }}
+                          <a href={{ path('app_post', {'id':post.id})}} class="btn btn-primary">Voir plus</a>
+                          <br><a href={{ path('app_delete_post', {'id':post.id})}} class="btn btn-primary">Delete Post</a>
+                          </div>
+                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
+
     {% endif %}
+    {% if comments is empty %}
+  <p>Vous n'avez pas de commentaire.</p>
+{% else %}
+  <h2>Comments by {{ user.username }}</h2>
+  {% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    {% for comment in post.comments %}
+      <p>Commentaire : <b>{{ comment.text }}</b></p>
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+
+{% else %}
+  <p>Vous devez vous connecter pour accéder à cette page.</p>
+{% endif %}
 {% endblock %}

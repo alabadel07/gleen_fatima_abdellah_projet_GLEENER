@@ -1,0 +1,19 @@
+{# templates/posts/new.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Créer un nouveau post</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.localisation) }}
+        {{ form_row(form.ville) }}
+        {{ form_row(form.other) }}
+        {{ form_row(form.annonce) }}
+
+        <button type="submit">Créer</button>
+    {{ form_end(form) }}
+{% endblock %}

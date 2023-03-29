@@ -52,7 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'creator_id', targetEntity: Blogs::class)]
     private Collection $blogs;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Comments::class)]
+    #[ORM\OneToMany(mappedBy: 'creator_id', targetEntity: Comments::class)]
     private Collection $comments;
 
     public function __construct()

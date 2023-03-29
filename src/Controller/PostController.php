@@ -42,11 +42,14 @@ class PostController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+
+    
     #[Route("/post/{id}/comment/add", name: "add_comment")]
     public function addComment(Request $request, EntityManagerInterface $entityManager, Posts $post): Response
     {
         $comments = new Comments();
-        $comments->setUser($this->getUser());
+        $comments->setCreator($this->getUser());
         $comments->setPost($post);
 
         $commentForm = $this->createForm(CommentType::class, $comments);

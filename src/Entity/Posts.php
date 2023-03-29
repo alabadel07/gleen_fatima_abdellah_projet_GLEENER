@@ -22,7 +22,7 @@ class Posts
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 5000000000 )]
     private ?string $content = null;
         #[ORM\Column(length: 255)]
     private ?string $localisation = null;
@@ -42,9 +42,15 @@ class Posts
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
-    
     #[ORM\Column]
     private array $annonce = [];
+    const ANNONCE = array(
+        'Logements' => 'Post_logement',
+        'Activités' => 'Post_Activités',
+        'Bons Plans' => 'Post_Bons plans'
+       
+    );
+   
     public function __construct()
     {
         $this->date = new \DateTime();
@@ -140,7 +146,7 @@ public function getOther(): ?string
     {
         $annonce = $this->annonce;
         // guarantee every user at least has Annonce_
-        $annonces[] = 'Annonce_Post';
+        $annonce[] = 'Annonce_Post';
 
         return array_unique($annonce);
     }

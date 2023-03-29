@@ -24,9 +24,12 @@ class Comments
     #[ORM\Column]
     private ?int $dislikes = 0;
 
+   
+
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user = null;
+    private ?User $creator = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
@@ -53,6 +56,17 @@ class Comments
     public function setText(string $text): self
     {
         $this->text = $text;
+
+        return $this;
+    }
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(?User $creator): self
+    {
+        $this->creator = $creator;
 
         return $this;
     }

@@ -22,7 +22,7 @@ class Blogs
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50000000)]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'blogs')]

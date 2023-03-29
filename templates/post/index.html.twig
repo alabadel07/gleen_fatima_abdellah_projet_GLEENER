@@ -29,7 +29,7 @@
                     <div class="card-header">Commentaires ({{ posts.comments.count }})</div>
                         <div class="card-body">
                     {% for comment in posts.comments %}
-                        <h6 class="card-title text-muted pb-0 mb-0 mt-2"><b class="fs-4">{{ comment.text }}</b> de {{ comment.user.username }}</h6>
+                        <h6 class="card-title text-muted pb-0 mb-0 mt-2"><b class="fs-4">{{ comment.text }}</b> crée par {{ comment.creator.username }}</h6>
                         <a class="pt-0 mt-0" href={{ path('app_report', {'id':comment.id}) }}>Signaler ({{ comment.reports.count }})</a>
                           <div>
  <a href="{{ path('like_comment', {'id': comment.id}) }}" class="btn btn-success">J'aime</a>
