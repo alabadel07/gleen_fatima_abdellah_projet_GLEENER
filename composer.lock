@@ -8202,7 +8202,6 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< HEAD
             "version": "10.0.19",
             "source": {
                 "type": "git",
@@ -8213,18 +8212,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20c23e85c86e5c06d63538ba464e8054f4744e62",
                 "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62",
-=======
-            "version": "10.0.18",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/582563ed2edc62d1455cdbe00ea49fe09428eef3",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3",
->>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
                 "shasum": ""
             },
             "require": {
@@ -8296,11 +8283,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.19"
-=======
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.18"
->>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
             },
             "funding": [
                 {
@@ -8316,11 +8299,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
             "time": "2023-03-27T11:46:33+00:00"
-=======
-            "time": "2023-03-22T06:15:31+00:00"
->>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
         },
         {
             "name": "sebastian/cli-parser",
@@ -9831,5 +9810,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }
