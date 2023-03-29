@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc027935bfdd3332c1f8fd2a3e183145",
+    "content-hash": "f7c39d9aa34e2562ab3f36924bf9b2e3",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2256,6 +2256,32 @@
             },
             "abandoned": "symfony/mailer",
             "time": "2018-07-31T09:26:32+00:00"
+        },
+        {
+            "name": "symfony/apache-pack",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/apache-pack.git",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/apache-pack/zipball/3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "reference": "3aa5818d73ad2551281fc58a75afd9ca82622e6c",
+                "shasum": ""
+            },
+            "type": "symfony-pack",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A pack for Apache support in Symfony",
+            "support": {
+                "issues": "https://github.com/symfony/apache-pack/issues",
+                "source": "https://github.com/symfony/apache-pack/tree/master"
+            },
+            "time": "2017-12-12T01:46:35+00:00"
         },
         {
             "name": "symfony/asset",
@@ -8176,6 +8202,7 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
             "version": "10.0.19",
             "source": {
                 "type": "git",
@@ -8186,6 +8213,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20c23e85c86e5c06d63538ba464e8054f4744e62",
                 "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62",
+=======
+            "version": "10.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/582563ed2edc62d1455cdbe00ea49fe09428eef3",
+                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3",
+>>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
                 "shasum": ""
             },
             "require": {
@@ -8257,7 +8296,11 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.19"
+=======
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.18"
+>>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
             },
             "funding": [
                 {
@@ -8273,7 +8316,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-03-27T11:46:33+00:00"
+=======
+            "time": "2023-03-22T06:15:31+00:00"
+>>>>>>> 53c37ab7e53d34f6b54c5d97f2ba6630822b14c5
         },
         {
             "name": "sebastian/cli-parser",
